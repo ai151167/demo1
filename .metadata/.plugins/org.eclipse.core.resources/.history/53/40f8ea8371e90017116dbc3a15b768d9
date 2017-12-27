@@ -1,0 +1,45 @@
+package com.huawei.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.huawei.demo.entity.Employee;
+import com.huawei.demo.service.IEmployeeService;
+import com.huawei.demo.vo.EmployeeVo;
+
+@Controller
+@RequestMapping("/demo/employee")
+public class EmployeeController {
+	@Autowired
+	private IEmployeeService employeeService;
+	
+	@RequestMapping("/list")
+	public String getList(ModelMap map){
+		List<EmployeeVo> employeeList = employeeService.listByEmployee();
+		map.put("list", employeeList);
+		return "employee";
+	}
+	
+	@RequestMapping("/info")
+	public String getInfo(Employee employee,ModelMap map){
+		Employee employeeInfo = employeeService.getByEmployeeInfo(employee.getDepartmentid());
+		map.put("info", employeeInfo);
+		return null;
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(Employee employee,ModelMap map){
+		employeeService.deleteEmployeeById(employee.getDepartmentid());
+		return null;
+	}
+	
+	@RequestMapping("/save")
+	public String save(Employee employee,ModelMap map){
+		employeeService.saveEmployee(employee);
+		return null;
+	}
+}

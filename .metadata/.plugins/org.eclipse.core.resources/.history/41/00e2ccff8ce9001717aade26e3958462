@@ -1,0 +1,52 @@
+package com.huawei.demo.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.huawei.demo.entity.Employee;
+import com.huawei.demo.entity.EmployeeExample;
+import com.huawei.demo.entity.mapper.EmployeeMapper;
+import com.huawei.demo.service.IEmployeeService;
+
+@Service
+public class EmployeeServiceImpl implements IEmployeeService {
+
+	@Autowired
+	private EmployeeMapper employeeMapper;
+	
+	
+	@Override
+	public List<Employee> listByEmployee() {
+		EmployeeExample example = new EmployeeExample();
+		example .createCriteria().andStatusEqualTo("01");
+		List<Employee> byExample = employeeMapper.selectByExample(example);
+		return byExample;
+	}
+
+	@Override
+	public Employee getByEmployeeInfo(int id) {
+		return employeeMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public void deleteEmployeeById(int id) {
+		Employee employee = new Employee();
+		employee.setStatus("00");
+		EmployeeExample example = new EmployeeExample();
+		example.createCriteria().andEmployeeidEqualTo(id);
+		employeeMapper.updateByExampleSelective(employee,example);
+	}
+
+	@Override
+	public void saveEmployee(Employee employee) {
+		if(employee.getDepartmentId()!=null&&employee.getDepartmentId()>0){
+			employeeMapper.updateByPrimaryKeySelective(employee);
+		}else{
+			employee.setStatus("01");
+			employeeMapper.insert(employee);
+		}
+	}
+
+}

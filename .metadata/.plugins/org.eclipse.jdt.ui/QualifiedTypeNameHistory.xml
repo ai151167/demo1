@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.xml.ws.soap.Addressing"/>
+<fullyQualifiedTypeName name="org.springframework.jdbc.datasource.embedded.EmbeddedDatabase"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="com.huawei.demo.entity.mapper.DepartmentMapper"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="com.huawei.demo.service.EmployeeService"/>
+<fullyQualifiedTypeName name="com.huawei.demo.service.DepartmentService"/>
+<fullyQualifiedTypeName name="com.huawei.demo.entity.EmployeeVo"/>
+<fullyQualifiedTypeName name="com.huawei.demo.service.IDepartmentService"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.huawei.demo.vo.EmployeeVo"/>
+<fullyQualifiedTypeName name="com.huawei.demo.entity.Employee"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.springframework.ui.ModelMap"/>
+<fullyQualifiedTypeName name="com.huawei.demo.entity.mapper.EmployeeMapper"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.huawei.demo.entity.EmployeeExample"/>
+<fullyQualifiedTypeName name="com.huawei.demo.entity.Department"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+<fullyQualifiedTypeName name="com.huawei.demo.entity.DepartmentExample"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,45 @@
+package com.huawei.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.huawei.demo.entity.Department;
+
+@Controller
+@RequestMapping("/demo/department")
+public class DepartmentController {
+	
+	@Autowired
+	private DepartmentService departmentService;
+	
+	@RequestMapping("/list")
+	public String getList(ModelMap map){
+		List<Department> departmentList = departmentService.listByDepartment();
+		System.out.println(departmentList.get(0).getName());
+		map.put("list", departmentList);
+		return "department";
+	}
+	
+	@RequestMapping("/info")
+	public String getInfo(Department department,ModelMap map){
+		Department departmentInfo = departmentService.getByDepartmentInfo(department.getDepartmentid());
+		map.put("info", departmentInfo);
+		return null;
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(Department department,ModelMap map){
+		departmentService.deleteDepartmentById(department.getDepartmentid());
+		return null;
+	}
+	
+	@RequestMapping("/save")
+	public String save(Department department,ModelMap map){
+		departmentService.saveDepartment(department);
+		return null;
+	}
+}
