@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hw-background:war">
+    <output-path>$PROJECT_DIR$/hw-background/target</output-path>
+    <root id="archive" name="hw-background-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="hw-background:war exploded" />
+    </root>
+  </artifact>
+</component>

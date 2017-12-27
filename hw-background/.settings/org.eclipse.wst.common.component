@@ -10,6 +10,9 @@
         <dependent-module archiveName="hw-pojo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/hw-pojo/hw-pojo">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="hw-dubboInterface-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/hw-dubboInterface/hw-dubboInterface">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="hw-background"/>
         <property name="java-output-path" value="/hw-background/target/classes"/>
     </wb-module>

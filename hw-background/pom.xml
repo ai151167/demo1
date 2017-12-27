@@ -77,6 +77,11 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
 			</dependency>
+			<dependency>
+				<groupId>com.huawei.demo</groupId>
+				<artifactId>hw-dubboInterface</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
 	</dependencies>
 <!-- 添加tomcat插件 -->
 	<build>

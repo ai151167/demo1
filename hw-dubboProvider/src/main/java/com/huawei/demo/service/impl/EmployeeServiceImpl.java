@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.huawei.demo.entity.Department;
+import com.huawei.demo.entity.DepartmentExample;
 import com.huawei.demo.entity.Employee;
 import com.huawei.demo.entity.EmployeeExample;
 import com.huawei.demo.entity.mapper.DepartmentMapper;
@@ -40,12 +41,27 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		employee.setStatus("00");
 		EmployeeExample example = new EmployeeExample();
 		example.createCriteria().andEmployeeidEqualTo(id);
+		Employee primaryKey = employeeMapper.selectByPrimaryKey(id);
 		employeeMapper.updateByExampleSelective(employee,example);
+		Department department = departmentMapper.selectByPrimaryKey(primaryKey.getDepartmentid());
+		department.setCount(department.getCount()-1);
+		DepartmentExample exampledepat = new DepartmentExample();
+		exampledepat.createCriteria().andDepartmentidEqualTo(primaryKey.getDepartmentid()).andStatusEqualTo("01");
+		departmentMapper.updateByExampleSelective(department, exampledepat );
 	}
 
 	@Override
 	public String saveEmployee(Employee employee) {
 		if(employee.getEmployeeid()!=null&&employee.getEmployeeid()>0){
+			Employee primaryKey = employeeMapper.selectByPrimaryKey(employee.getEmployeeid());
+			if(employee.getDepartmentid()!=null&&employee.getDepartmentid()>0&&primaryKey.getDepartmentid()!= employee.getDepartmentid()){
+				Department departmentOld = departmentMapper.selectByPrimaryKey(primaryKey.getDepartmentid());
+				departmentOld.setCount(departmentOld.getCount()-1);
+				departmentMapper.updateByPrimaryKeySelective(departmentOld);
+				Department departmentNew = departmentMapper.selectByPrimaryKey(employee.getDepartmentid());
+				departmentNew.setCount(departmentNew.getCount()+1);
+				departmentMapper.updateByPrimaryKeySelective(departmentNew);
+			}
 			employeeMapper.updateByPrimaryKeySelective(employee);
 			return "updateOk";
 		}else{

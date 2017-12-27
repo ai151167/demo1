@@ -19,6 +19,7 @@
 	$(function(){
 		$('#add').click(function () {
 			$("#myModalLabel").html("添加员工信息");
+			clean();
 			limitDepartment();
 			save();
 			$('#myModal').modal({
@@ -30,8 +31,9 @@
 		$(".update").click(function(){
 			$("#myModalLabel").html("编辑员工信息");
 			var id =$(this).attr("btn_id");
-			linitEmployeeInfo(id);
+			clean();
 			limitDepartment();
+			linitEmployeeInfo(id);
 			save();
 			$('#myModal').modal({
 				  keyboard: false
@@ -57,6 +59,16 @@
 			location.href = "demo/department/toList";
 		});
 		
+		function clean(){
+			$("#employeeid").val("");
+			$("#jobnum").val("");
+			$("#name").val("");
+			$("#age").val("");
+			$("#position").val("");
+			$("#mobile").val("");
+			$("#chooseSex").val("");
+			$("#chooseDepart").val("");
+		};
 		function save(){
 			$("#save").click(function(){
 				$.ajax({
@@ -282,7 +294,7 @@
 				    </div>     
 
 	      		<div class="modal-footer">
-	       		 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	       		 <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>
 	       		 <button type="button" class="btn btn-primary" id="save">保存信息</button>
 	     		 </div>
 	   		 </div>
