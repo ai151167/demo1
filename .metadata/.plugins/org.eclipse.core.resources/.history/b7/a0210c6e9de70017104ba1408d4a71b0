@@ -1,0 +1,5 @@
+package com.huawei.demo.service;
+
+public interface DepartmentService {
+	public List<Department> listByDepartment();
+}

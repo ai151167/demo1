@@ -1,0 +1,44 @@
+package com.huawei.demo.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.huawei.demo.entity.Department;
+import com.huawei.demo.entity.DepartmentExample;
+import com.huawei.demo.entity.mapper.DepartmentMapper;
+import com.huawei.demo.service.DepartmentService;
+
+@Service
+public class DepartmentServiceImpl implements DepartmentService {
+
+	@Autowired
+	private DepartmentMapper departmentMapper;
+	
+	@Override
+	public List<Department> listByDepartment() {
+		DepartmentExample example = new DepartmentExample();
+		departmentMapper.selectByExample(example );
+		return null;
+	}
+
+	@Override
+	public Department getByDepartmentInfo(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteDepartmentById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveDepartment(Department department) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.huawei.demo.entity;
+
+public class EmployeeVo {
+ 
+}

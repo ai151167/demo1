@@ -1,0 +1,13 @@
+package com.huawei.demo.service;
+
+import java.util.List;
+
+import com.huawei.demo.entity.Employee;
+import com.huawei.demo.entity.EmployeeVo;
+
+public interface IEmployeeService {
+	public List<EmployeeVo> listByEmployee();
+	public Employee getByEmployeeInfo(int id);
+	public void deleteEmployeeById(int id);
+	public void saveEmployee(Employee Employee);
+}

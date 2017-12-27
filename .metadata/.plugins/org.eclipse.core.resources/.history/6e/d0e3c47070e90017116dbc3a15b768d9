@@ -1,0 +1,15 @@
+package com.huawei.demo.entity;
+
+import java.io.Serializable;
+
+public class EmployeeVo implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+ 
+	private Employee employee;
+	
+	private String department;
+}

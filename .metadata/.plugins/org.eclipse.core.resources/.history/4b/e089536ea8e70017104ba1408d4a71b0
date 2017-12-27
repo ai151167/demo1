@@ -1,0 +1,43 @@
+package com.huawei.demo.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.huawei.demo.entity.Employee;
+import com.huawei.demo.entity.mapper.EmployeeMapper;
+import com.huawei.demo.service.EmployeeService;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+	@Autowired
+	private EmployeeMapper employeeMapper;
+	
+	
+	@Override
+	public List<Employee> listByEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee getByEmployeeInfo(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteEmployeeById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveEmployee(Employee Employee) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

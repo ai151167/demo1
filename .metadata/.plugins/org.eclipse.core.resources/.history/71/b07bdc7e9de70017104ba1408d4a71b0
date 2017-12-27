@@ -1,0 +1,10 @@
+package com.huawei.demo.service;
+
+import java.util.List;
+
+import com.huawei.demo.entity.Department;
+
+public interface DepartmentService {
+	public List<Department> listByDepartment();
+	public List<Department> getByDepartmentInfo();
+}

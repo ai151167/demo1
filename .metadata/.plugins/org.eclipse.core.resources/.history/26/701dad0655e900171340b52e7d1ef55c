@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="demo-provider"/>
+  <!--   <dubbo:registry address="multicast://224.5.6.7:1234"/> -->
+     <dubbo:registry protocol="zookeeper" address="120.77.151.19:2181" register="false"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <!-- provider 端  -->
+    <dubbo:service interface="com.huawei.demo.service.IDepartmentService" ref="departmentService" timeout="600000"/>
+    <bean id="departmentService" class="com.huawei.demo.service.impl.DepartmentServiceImpl"/>
+    
+    <dubbo:service interface="com.huawei.demo.service.IEmployeeService" ref="employeeService" timeout="600000" />
+    <bean id="employeeService" class="com.huawei.demo.service.impl.EmployeeServiceImpl"/>
+</beans>
